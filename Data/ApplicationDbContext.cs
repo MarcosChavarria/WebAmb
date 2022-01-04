@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebAmb.Models;
 
 namespace WebAmb.Data
 {
@@ -9,5 +10,6 @@ namespace WebAmb.Data
             : base(options)
         {
         }
+        public DbSet<WebAmb.Models.ModeloPrueba> ModeloPrueba { get; set; }
     }
 }

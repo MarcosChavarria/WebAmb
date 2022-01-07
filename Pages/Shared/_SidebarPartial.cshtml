@@ -1,0 +1,124 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+      <div class="sidebar-brand d-none d-md-flex">
+       <a class="nav-link" href="/Index">
+          <svg class="sidebar-brand-full" width="193" height="46" alt="lifesupportcr Logo">
+          @*<use xlink:href="/lib/coreui/dist/assets/brand/coreui.svg#full"></use>*@
+         
+          <image href="/img/2logowhl_p.png"  width="193" height="46"/>
+        </svg>
+        <svg class="sidebar-brand-narrow" width="46" height="46" alt="lifesupportcr Logo">
+          @*<use xlink:href="/lib/coreui/dist/assets/brand/coreui.svg#signet"></use>*@
+       
+          <image href="/img/icono4646wh.png" height="46" width="46"/>
+        </svg>
+        </a>
+
+      </div>
+      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+        <li class="nav-item"><a class="nav-link" href="/Privacy">
+            <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-speedometer"></use>
+            </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
+       
+        <li class="nav-title">Servicios</li>
+        <li class="nav-item"><a class="nav-link" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-medical-cross"></use>
+            </svg>Atención de pacientes</a></li>
+
+
+        <li class="nav-item"><a class="nav-link" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-pencil"></use>
+            </svg> Otro...</a></li>
+       
+        <li class="nav-title">Configuración</li>
+        
+
+                <li class="nav-item"> <a class="nav-link" asp-area="" asp-page="/vPaciente/Index">
+            <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-user"></use>
+            </svg>Pacientes<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
+
+            
+
+                    <li class="nav-item"><a class="nav-link" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-hospital"></use>
+            </svg>Centros médicos<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
+
+
+                <li class="nav-item"><a class="nav-link" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-car-alt"></use>
+            </svg> Vehículos<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
+
+        <li class="nav-group">     
+          <a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-applications"></use>
+            </svg> Catálogos</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Consecutivos</a></li>
+            <li class="nav-item"><a class="nav-link" asp-area="" asp-page="/vGenero/Index"><span class="nav-icon"></span> Géneros</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Prioridad de traslado</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Justificación no traslado</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Clasificación de atención</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Medicamentos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Soluciones</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Maniobras Avanzadas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Lesiones</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Médicos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"></span> Otros</a></li>
+          </ul>
+        </li>
+      
+
+
+        <li class="nav-divider"></li>
+@*
+        <li class="nav-title">Otros</li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-star"></use>
+            </svg> Pages</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="#" target="_top">
+                <svg class="nav-icon">
+                  <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                </svg> Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" target="_top">
+                <svg class="nav-icon">
+                  <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                </svg> Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" target="_top">
+                <svg class="nav-icon">
+                  <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-bug"></use>
+                </svg> Error 404</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" target="_top">
+                <svg class="nav-icon">
+                  <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-bug"></use>
+                </svg> Error 500</a></li>
+          </ul>
+        </li>*@
+
+
+        <li class="nav-item mt-auto"><a class="nav-link" href="https://www.facebook.com/ambulanciasprivadas.lifesupport/" target="_blank">
+           <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/brand.svg#cib-facebook-f"></use>
+            </svg>Facebook</a>
+        </li>
+        <li class="nav-item"><a class="nav-link nav-link-danger" href="http://lifesupportcr.com/"  target="_blank">
+            <svg class="nav-icon">
+              <use xlink:href="/lib/coreui/dist/vendors/@@coreui/icons/svg/free.svg#cil-home"></use>
+            </svg>lifesupportcr.com
+            <div class="fw-semibold"></div>
+          </a></li>
+      </ul>
+      <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+    </div>

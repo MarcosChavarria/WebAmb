@@ -4,56 +4,49 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - lifesupportcr</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WebAmb.styles.css" asp-append-version="true" />
+   @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+   @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebAmb.styles.css" asp-append-version="true" />*@
+
+
+    <!-- coreui --> 
+    <!-- Vendors styles-->
+    <link rel="stylesheet" href="~/lib/coreui/dist/vendors/simplebar/css/simplebar.css">
+    <link rel="stylesheet" href="~/lib/coreui/dist/css/vendors/simplebar.css">
+    <!-- Main styles for this application-->
+    <link href="~/lib/coreui/dist/css/style.css" rel="stylesheet">
+    <link href="~/lib/coreui/dist/vendors/@@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">lifesupportcr</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
 
-                         <li class="nav-item">
-                             <a class="nav-link text-dark" asp-area="" asp-page="/vModeloPrueba/Index">ModeloPrueba</a>
+    <partial name="_SidebarPartial" />  
 
-
-                        </li>
-
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+       <partial name="_HeaderPartial" />  
+       <div class="body flex-grow-1 px-3">
+            <div class="container-lg">
+                @RenderBody()                    
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - lifesupportcr - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+       </div>
+       <partial name="_FooterPartial" />
+   </div>@*FIN WARPPER*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+     <!-- CoreUI and necessary plugins-->
+    <script src="~/lib/coreui/dist/vendors/@@coreui/coreui/js/coreui.bundle.min.js"></script>
+    <script src="~/lib/coreui/dist/vendors/simplebar/js/simplebar.min.js"></script>
+  
+    <!-- Plugins and scripts required by this view-->
+  @*  <script src="~/lib/coreui/dist/vendors/chart.js/js/chart.min.js"></script>
+    <script src="~/lib/coreui/dist/vendors/@@coreui/chartjs/js/coreui-chartjs.js"></script>
+    <script src="~/lib/coreui/dist/vendors/@@coreui/utils/js/coreui-utils.js"></script>
+    <script src="~/lib/coreui/dist/js/main.js"></script>*@
+
 </body>
 </html>

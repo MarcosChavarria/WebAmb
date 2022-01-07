@@ -1,0 +1,66 @@
+﻿@page
+@model WebAmb.Pages.vGenero.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+
+<div class="card mb-4">
+    <div class="card-header"><strong>Tables</strong><span class="small ms-1">Header de la tabla</span></div>
+    <div class="card-body">
+        <p class="text-medium-emphasis small">Texto explicativo</p>
+       
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero[0].code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero[0].name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero[0].desc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Genero) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.desc)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.genero_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.genero_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.genero_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+          
+         
+       
+    </div>
+</div>
+

@@ -224,21 +224,77 @@ namespace WebAmb.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("WebAmb.Models.ModeloPrueba", b =>
+            modelBuilder.Entity("WebAmb.Models.Genero", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("genero_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("genero_id"), 1L, 1);
 
-                    b.Property<string>("texto")
+                    b.Property<string>("code")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.Property<string>("desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("ModeloPrueba");
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("genero_id");
+
+                    b.ToTable("Genero", (string)null);
+                });
+
+
+            modelBuilder.Entity("WebAmb.Models.Paciente", b =>
+                {
+                    b.Property<int>("paciente_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("paciente_id"), 1L, 1);
+
+                    b.Property<string>("apellido1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("apellido2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("direccion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("edad")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("fechanacimiento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("genero_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("identificacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("telefono")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("paciente_id");
+
+                    b.HasIndex("genero_id");
+
+                    b.ToTable("Paciente", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -290,6 +346,17 @@ namespace WebAmb.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("WebAmb.Models.Paciente", b =>
+                {
+                    b.HasOne("WebAmb.Models.Genero", "genero")
+                        .WithMany()
+                        .HasForeignKey("genero_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("genero");
                 });
 #pragma warning restore 612, 618
         }

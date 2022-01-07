@@ -10,6 +10,9 @@ namespace WebAmb.Data
             : base(options)
         {
         }
-        public DbSet<WebAmb.Models.ModeloPrueba> ModeloPrueba { get; set; }
+
+        public DbSet<WebAmb.Models.Genero> Genero { get; set; }
+        public DbSet<WebAmb.Models.Paciente> Paciente { get; set; }
+   
     }
 }

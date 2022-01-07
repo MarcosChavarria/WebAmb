@@ -1,0 +1,70 @@
+﻿@page
+@model WebAmb.Pages.vPaciente.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Paciente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Paciente.nombre" class="control-label"></label>
+                <input asp-for="Paciente.nombre" class="form-control" />
+                <span asp-validation-for="Paciente.nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paciente.apellido1" class="control-label"></label>
+                <input asp-for="Paciente.apellido1" class="form-control" />
+                <span asp-validation-for="Paciente.apellido1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paciente.apellido2" class="control-label"></label>
+                <input asp-for="Paciente.apellido2" class="form-control" />
+                <span asp-validation-for="Paciente.apellido2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paciente.identificacion" class="control-label"></label>
+                <input asp-for="Paciente.identificacion" class="form-control" />
+                <span asp-validation-for="Paciente.identificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paciente.edad" class="control-label"></label>
+                <input asp-for="Paciente.edad" class="form-control" />
+                <span asp-validation-for="Paciente.edad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paciente.fechanacimiento" class="control-label"></label>
+                <input asp-for="Paciente.fechanacimiento" class="form-control" />
+                <span asp-validation-for="Paciente.fechanacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paciente.telefono" class="control-label"></label>
+                <input asp-for="Paciente.telefono" class="form-control" />
+                <span asp-validation-for="Paciente.telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paciente.direccion" class="control-label"></label>
+                <input asp-for="Paciente.direccion" class="form-control" />
+                <span asp-validation-for="Paciente.direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
